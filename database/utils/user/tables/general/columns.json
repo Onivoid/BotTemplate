@@ -1,0 +1,42 @@
+[
+    {
+        "name": "user_id",
+        "type": "INTEGER",
+        "constraint" :""
+    },
+    {
+        "name": "experience",
+        "type": "INTEGER",
+        "constraint" :"DEFAULT 0"
+    },
+    {
+        "name": "experience_timer",
+        "type": "INTEGER",
+        "constraint" :"DEFAULT 0"
+    },
+    {
+        "name": "level",
+        "type": "INTEGER",
+        "constraint" :"DEFAULT 0"
+    },
+    {
+        "name": "reputation",
+        "type": "INTEGER",
+        "constraint" :"DEFAULT 0"
+    },
+    {
+        "name": "reputation_timer",
+        "type": "INTEGER",
+        "constraint" :"DEFAULT 0"
+    },
+    {
+        "name": "flood_counter",
+        "type": "INTEGER",
+        "constraint" :"DEFAULT 0"
+    },
+    {
+        "name": "warning",
+        "type": "INTEGER",
+        "constraint" :"DEFAULT 0"
+    }
+]

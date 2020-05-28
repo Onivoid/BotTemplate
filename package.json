@@ -1,0 +1,21 @@
+{
+  "name": "Template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setup": "npm i",
+    "postinstall": "node index.js",
+    "createDB": "node database/utils/createDatabase.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^7.0.1",
+    "clear": "^0.1.0",
+    "colors": "^1.3.3",
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.0.0"
+  }
+}
