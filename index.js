@@ -46,7 +46,7 @@ client.on('ready', async function(){
         \rListe des serveurs :
         \r- ${serversName}
         \n
-    `.green.bold+`\rDéveloppé par : Skullyfox#5887`.yellow.bold);
+    `);
 
     client.user.setActivity(botStatus)
 
