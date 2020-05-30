@@ -13,10 +13,11 @@ module.exports = {
         let userId = msg.author.id;
         let userExist = db.prepare(`SELECT * FROM users_infos WHERE user_id = ${userId}`).all().length;
         if(userExist < 1){
-            newUser(userId);
+            newUser(Discord, client, msg);
         } else if (userExist === 1) {
-            giveXP(userId);
+            let userInfos = db.prepare(`SELECT * FROM users_infos WHERE user_id = ?`).get(userId);
             let command = msg.content.split(' ')[0];
+            giveXP(userInfos.id)
             switch (command) {
                 case `!stats`:
                     statsUser(Discord, client, msg);
@@ -29,6 +30,7 @@ module.exports = {
                 default:
                     break;
             }
+            
         }
     }
 }

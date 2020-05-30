@@ -7,8 +7,8 @@ function getRandomInt(min,max) {
 }
 
 module.exports = {
-    giveXP: (userId) => {
-        let userInfos = db.prepare(`SELECT * FROM users_infos WHERE user_id = ${userId}`).get();
+    giveXP: (id) => {
+        let userInfos = db.prepare(`SELECT * FROM users_infos WHERE id = ?`).get(id);
         let howMuchXP = getRandomInt(15,30);
         let expTimer = userInfos.experience_timer;
         let expGainAllowed = Math.floor((Date.now() - expTimer) / 1000) > 1 || expTimer === 0;
@@ -36,9 +36,11 @@ module.exports = {
             ).toJSON();
 
         if (expGainAllowed && !newLevel) {
-            userCrud.update(userGainExp);
+            console.log('a')
+            userCrud.update(userInfos.id, userGainExp);
         } else if (expGainAllowed && newLevel) {
-            userCrud.update(userGainLevel);
+            console.log('b')
+            userCrud.update(userInfos.id, userGainLevel);
         }
     }
 }

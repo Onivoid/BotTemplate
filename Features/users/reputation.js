@@ -9,7 +9,6 @@ function getRandomInt(min,max) {
 module.exports = {
     giveRep: (Discord, client, msg) => {
         let usersIds = msg.mentions.users.map((user) => user.id)
-
         /*let userLooseRep = new userCrud.UserInfos(
                 userInfos.user_id,
                 userInfos.experience,
@@ -22,7 +21,7 @@ module.exports = {
             ).toJSON();*/
 
         usersIds.map(userId => {
-            let userInfos = db.prepare(`SELECT * FROM users_infos WHERE user_id = ${userId}`).get();
+            let userInfos = db.prepare(`SELECT * FROM users_infos WHERE user_id = ?`).get(userId);
             let repTimer = userInfos.reputation_timer;
             let repGainAllowed = Math.floor((Date.now() - repTimer) / 1000) > 1 || repTimer === 0;
             let userGainRep = new userCrud.UserInfos(
@@ -37,7 +36,7 @@ module.exports = {
             ).toJSON();
 
             if (repGainAllowed && userId != msg.author.id) {
-                userCrud.update(userGainRep);
+                userCrud.update(userInfos.id,userGainRep);
             }
         }) 
     }
