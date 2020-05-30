@@ -3,7 +3,7 @@ const userDB = new Database('database/data/user.db');
 
 
 module.exports = {
-    update : (user) => {
+    update : async (user) => {
         const data = userDB.prepare(`SELECT * FROM users_infos WHERE user_id = ${user.userId}`).get();
         const insert = userDB.prepare(`\
             UPDATE users_infos \
@@ -15,6 +15,7 @@ module.exports = {
                 flood_counter = @floodCounter,
                 warning = @warning\
             WHERE user_id = ${user.userId}`);
+        await data;
         insert.run({
             exp: user.exp || data.experience,
             expTimer: user.expTimer || data.experience_timer,
