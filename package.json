@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "setup": "npm i",
-    "postinstall": "node index.js",
-    "createDB": "node database/utils/createDatabase.js"
+    "precreateDB": "npm i",
+    "createDB": "node database/utils/createDatabase.js",
+    "postcreateDB": "node index.js"
   },
   "keywords": [],
   "author": "",
