@@ -1,5 +1,5 @@
 const Database = require('better-sqlite3');
-const db = new Database('database/data/user.db', { verbose: console.log });
+const db = new Database('database/data/user.db');
 
 
 module.exports = {
@@ -24,6 +24,5 @@ module.exports = {
             floodCounter: user.floodCounter || data.flood_counter,
             warning: user.warning || data.warning
         })
-        console.log('a')
     }
 }

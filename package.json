@@ -1,12 +1,13 @@
 {
-  "name": "Template",
+  "name": "beodara_bot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "precreateDB": "npm i",
     "createDB": "node database/utils/createDatabase.js",
-    "postcreateDB": "node index.js"
+    "presetup": "npm i",
+    "setup": "node config/setup.js",
+    "postsetup": "npm run createDB"
   },
   "keywords": [],
   "author": "",
