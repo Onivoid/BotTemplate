@@ -4,16 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "createDB": "node database/utils/createDatabase.js",
     "presetup": "npm i",
-    "setup": "node config/setup.js",
-    "postsetup": "npm run createDB"
+    "setup": "node config/setup.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "better-sqlite3": "^7.0.1",
     "clear": "^0.1.0",
     "colors": "^1.3.3",
     "discord.js": "^11.5.1",

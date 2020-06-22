@@ -9,7 +9,6 @@ const   Discord = require('discord.js'),
         clear = require('clear'),
         client = new Discord.Client(),
         colors = require('colors');
-        eventHandler = require('./Features/EventHandler');
 
 /**
  * Environnement Variables in config/.env
@@ -50,10 +49,6 @@ client.on('ready', async function(){
 
     client.user.setActivity(botStatus)
 
-});
-
-client.on('message', (msg) => {
-    eventHandler(Discord, client, msg);
 });
 
 client.login(token);
