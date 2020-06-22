@@ -12,8 +12,8 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-rl.question("\nBot's token : ".green, async token => {
-    rl.question("Bot's status (ex : Beodara): ".green, botStatus => {
+rl.question("\nBot's token : ".green, token => {
+    rl.question("Bot's status (ex : Beodara): ".green, async botStatus => {
         let data = envData(token, botStatus);
         await fs.writeFile('./config/.env', data, (err) => {
             if (err) throw err;
