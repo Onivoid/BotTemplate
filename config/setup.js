@@ -12,7 +12,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-rl.question("\nBot's token : ".green, token => {
+rl.question("\nBot's token : ".green, async token => {
     rl.question("Bot's status (ex : Beodara): ".green, botStatus => {
         let data = envData(token, botStatus);
         await fs.writeFile('./config/.env', data, (err) => {
